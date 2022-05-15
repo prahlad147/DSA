@@ -1,0 +1,114 @@
+********** What is an Algorithm? ************
+
+-> An algorithm is a set of well-defined instructions in sequence to solve a problem.
+
+
+
+
+********** Qualities of Good Algorithms? **********
+-> 1. Input and output should be defined precisely.
+   2. Each step in the algorithm should be clear and unambiguous.
+   3. Algorithms should be most effective among many different ways to solve a 
+      problem.
+   4. An algorithm shouldn't include computer code. Instead, the algorithm 
+      should be written in such a way that it can be used in different 
+      programming languages.
+      
+      
+
+
+-> Time Complexity -> Lesser time involved.
+-> Space Complexity -> Fewer memory involved.
+
+
+
+
+-> If it was written in a programming language, we would call it to code instead.
+
+-> Two of the most valuable resources for a computer program are time and memory.
+
+-> The time taken by the computer to run code is: Time to run code = number of instructions * time to execute each instruction
+
+-> The number of instructions depends on the code you used, and the time taken to execute each code depends on your machine and compiler.
+
+-> Scalability is scale plus ability, which means the quality of an algorithm/system to handle the problem of larger size.
+
+
+
+
+************ Asymptotic Analysis: Big-O Notation and More **********
+
+-> The efficiency of an algorithm depends on the amount of time, storage and other resources required to execute the algorithm. The efficiency is measured with the 
+help of asymptotic notations.
+
+-> The study of change in performance of the algorithm with the change in the order of the input size is defined as asymptotic analysis.
+
+
+
+
+*********** Asymptotic Notations ***********
+
+-> Asymptotic notations are the mathematical notations used to describe the running time of an algorithm when the input tends towards a particular value or a 
+limiting value.
+
+
+
+There are mainly three asymptotic notations:
+• Big-O notation
+• Omega notation
+• Theta notation
+
+
+
+
+********** Big-O Notation (O-notation) ***********
+
+-> Big-O notation represents the upper bound of the running time of an algorithm. Thus, it gives the worst-case complexity of an algorithm.
+
+-> O gives the upper bound of a function
+
+O(g(n)) = { f(n): there exist positive constants c and n0 such that 0 ≤ f(n) ≤ cg(n) for all n ≥ n0 }
+
+The above expression can be described as a function f(n) belongs to the set O(g(n)) if there exists a positive constant c such that it lies between 0 and cg(n), 
+for sufficiently large n.
+
+For any value of n, the running time of an algorithm does not cross the time provided by O(g(n)).
+
+Since it gives the worst-case running time of an algorithm, it is widely used to analyze an algorithm as we are always interested in the worst-case scenario.
+
+
+
+
+*********** Omega Notation (Ω-notation) ************
+
+-> Omega notation represents the lower bound of the running time of an algorithm. 
+Thus, it provides the best case complexity of an algorithm.
+
+Ω(g(n)) = { f(n): there exist positive constants c and n0 such that 0 ≤ cg(n) ≤ f(n) for all n ≥ n0 }
+
+The above expression can be described as a function f(n) belongs to the set Ω(g(n)) if there exists a positive constant c such that it lies above cg(n), for 
+sufficiently large n.
+
+For any value of n, the minimum time required by the algorithm is given by Omega Ω(g(n)).
+
+
+
+
+********** Theta Notation (Θ-notation) 
+Theta notation encloses the function from above and below. Since it represents 
+the upper and the lower bound of the running time of an algorithm, it is used for 
+analyzing the average-case complexity of an algorithm.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
