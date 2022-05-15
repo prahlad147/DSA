@@ -1,5 +1,4 @@
 ********** What is an Algorithm? ************
-
 -> An algorithm is a set of well-defined instructions in sequence to solve a problem.
 
 
@@ -8,45 +7,50 @@
 ********** Qualities of Good Algorithms? **********
 -> 1. Input and output should be defined precisely.
    2. Each step in the algorithm should be clear and unambiguous.
-   3. Algorithms should be most effective among many different ways to solve a 
-      problem.
-   4. An algorithm shouldn't include computer code. Instead, the algorithm 
-      should be written in such a way that it can be used in different 
+   3. Algorithms should be most effective among many different ways to solve a problem.
+   4. An algorithm shouldn't include computer code. Instead, the algorithm should be written in such a way that it can be used in different 
       programming languages.
       
       
+      
 
-
+*********** Time and Space Complexity? ***********
 -> Time Complexity -> Lesser time involved.
 -> Space Complexity -> Fewer memory involved.
 
 
-
-
--> If it was written in a programming language, we would call it to code instead.
-
 -> Two of the most valuable resources for a computer program are time and memory.
 
--> The time taken by the computer to run code is: Time to run code = number of instructions * time to execute each instruction
+-> The time taken by the computer to run code is: 
+   
+   Time to run code = number of instructions * time to execute each instruction
 
 -> The number of instructions depends on the code you used, and the time taken to execute each code depends on your machine and compiler.
 
+
+
+
+********** Code? ***********
+-> If it was written in a programming language, we would call it to code instead.
+
+
+
+********** Scalability **********
 -> Scalability is scale plus ability, which means the quality of an algorithm/system to handle the problem of larger size.
 
 
 
 
-************ Asymptotic Analysis: Big-O Notation and More **********
+************ Asymptotic Analysis? **********
 
--> The efficiency of an algorithm depends on the amount of time, storage and other resources required to execute the algorithm. The efficiency is measured with the 
-help of asymptotic notations.
-
+-> The efficiency of an algorithm depends on the amount of time, storage and other resources required to execute the algorithm. 
+-> The efficiency is measured with the help of asymptotic notations.
 -> The study of change in performance of the algorithm with the change in the order of the input size is defined as asymptotic analysis.
 
 
 
 
-*********** Asymptotic Notations ***********
+*********** Asymptotic Notations? ***********
 
 -> Asymptotic notations are the mathematical notations used to describe the running time of an algorithm when the input tends towards a particular value or a 
 limiting value.
@@ -61,13 +65,14 @@ There are mainly three asymptotic notations:
 
 
 
-********** Big-O Notation (O-notation) ***********
+********** Big-O Notation (O-notation)? ***********
 
--> Big-O notation represents the upper bound of the running time of an algorithm. Thus, it gives the worst-case complexity of an algorithm.
+-> Big-O notation represents the upper bound of the running time of an algorithm. 
+->Thus, it gives the worst-case complexity of an algorithm.
 
 -> O gives the upper bound of a function
 
-O(g(n)) = { f(n): there exist positive constants c and n0 such that 0 ≤ f(n) ≤ cg(n) for all n ≥ n0 }
+      O(g(n)) = { f(n): there exist positive constants c and n0 such that 0 ≤ f(n) ≤ cg(n) for all n ≥ n0 }
 
 The above expression can be described as a function f(n) belongs to the set O(g(n)) if there exists a positive constant c such that it lies between 0 and cg(n), 
 for sufficiently large n.
@@ -79,7 +84,7 @@ Since it gives the worst-case running time of an algorithm, it is widely used to
 
 
 
-*********** Omega Notation (Ω-notation) ************
+*********** Omega Notation (Ω-notation)? ************
 
 -> Omega notation represents the lower bound of the running time of an algorithm. 
 Thus, it provides the best case complexity of an algorithm.
@@ -94,14 +99,75 @@ For any value of n, the minimum time required by the algorithm is given by Omega
 
 
 
-********** Theta Notation (Θ-notation) 
-Theta notation encloses the function from above and below. Since it represents 
-the upper and the lower bound of the running time of an algorithm, it is used for 
+********** Theta Notation (Θ-notation)? ************
+
+-> Theta notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for 
 analyzing the average-case complexity of an algorithm.
 
+Theta bounds the function within constants factorsFor a function g(n), Θ(g(n)) is given by the relation:
+Θ(g(n)) = { f(n): there exist positive constants c1, c2 and n0 such that 0 ≤ c1g(n) ≤ f(n) ≤ c2g(n) for all n ≥ n0 }
+
+The above expression can be described as a function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1 and c2 such that it can be sandwiched 
+between c1g(n) and c2g(n), for sufficiently large n.
+
+If a function f(n) lies anywhere in between c1g(n) and c2g(n) for all n ≥ n0, then 
+f(n) is said to be asymptotically tight bound.
 
 
 
+
+********** Master Theorem? **********
+
+The master method is a formula for solving recurrence relations of the form:
+T(n) = aT(n/b) + f(n),
+where,
+n = size of input
+a = number of subproblems in the recursion
+n/b = size of each subproblem. All subproblems are assumed to have the same size.
+f(n) = cost of the work done outside the recursive call, which includes the cost of dividing the problem and cost of merging the solutions.
+ 
+ 
+Here, a ≥ 1 and b > 1 are constants, and f(n) is an asymptotically positive function.
+An asymptotically positive function means that for a sufficiently large value of n, 
+we have f(n) > 0.
+The master theorem is used in calculating the time complexity of recurrence 
+relations (divide and conquer algorithms) in a simple and quick way.
+If a ≥ 1 and b > 1 are constants and f(n) is an asymptotically positive function, then 
+the time complexity of a recursive relation is given by
+T(n) = aT(n/b) + f(n)
+where, T(n) has the following asymptotic bounds:
+ 1. If f(n) = O(nlogb a-ϵ), then T(n) = Θ(nlogb a).
+ 2. If f(n) = Θ(nlogb a), then T(n) = Θ(nlogb a * log n).
+ 3. If f(n) = Ω(nlogb a+ϵ), then T(n) = Θ(f(n)).
+ϵ > 0 is a constant.
+Each of the above conditions can be interpreted as:
+1. If the cost of solving the sub-problems at each level increases by a certain 
+factor, the value of f(n) will become polynomially smaller than nlogb a. 
+Thus, the time complexity is oppressed by the cost of the last level ie. nlogb 
+a
+2. If the cost of solving the sub-problem at each level is nearly equal, then the 
+value of f(n) will be nlogb a. Thus, the time complexity will be f(n) times the 
+total number of levels ie. nlogb a * log n
+3. If the cost of solving the subproblems at each level decreases by a certain 
+factor, the value of f(n) will become polynomially larger than nlogb a. Thus, 
+the time complexity is oppressed by the cost of f(n).
+Solved Example of Master Theorem
+T(n) = 3T(n/2) + n2
+Here,
+a = 3
+n/b = n/2
+f(n) = n2
+logb a = log2 3 ≈ 1.58 < 2
+ie. f(n) < nlogb
+a+ϵ , where, ϵ is a constant.
+Case 3 implies here.
+Thus, T(n) = f(n) = Θ(n2) 
+Master Theorem Limitations
+The master theorem cannot be used if:
+• T(n) is not monotone. eg. T(n) = sin n
+• f(n) is not a polynomial. eg. f(n) = 2n
+• a is not a constant. eg. a = 2n
+• a < 1
 
 
 
