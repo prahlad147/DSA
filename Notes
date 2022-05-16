@@ -893,21 +893,97 @@ iii. Double hashing
 
 
 
+********** Heap Data Structure **********
+
+-> Heap data structure is a complete binary tree that satisfies the heap property. It is also called as a binary heap.
+
+-> A complete binary tree is a special binary tree in which
+• every level, except possibly the last, is filled
+• all the nodes are as far left as possible
+
+
+
+
+*********** Heap Property **********
+
+-> Heap Property is the property of a node in which:
+
+• (for max heap) key of each node is always greater than its child node/s and the key of the root node is the largest among all other nodes;
+
+• (for min heap) key of each node is always smaller than the child node/s and the key of the root node is the smallest among all other nodes.
+
+
+
+
+********** Heap Operations **********
+
+-> Some of the important operations performed on a heap are described below along with their algorithms: Heapify
+
+
+
+
+********** Heapify **********
+
+->Heapify is the process of creating a heap data structure from a binary tree. It is used to create a Min-Heap or a Max-Heap.
+
+   1. Let the input array.
+   2. Create a complete binary tree from the array
+   3. Start from the first index of non-leaf node whose index is given by n/2 - 1.
+   4. Set current element i as largest.
+   5. The index of left child is given by 2i + 1 and the right child is given by 2i + 2.
+      If leftChild is greater than currentElement (i.e. element at ith index), set leftChildIndex as largest.
+      If rightChild is greater than element in largest, set rightChildIndex as largest.
+   6. Swap largest with currentElement
+   7. Repeat steps 3-7 until the subtrees are also heapified.
 
 
 
 
 
+*********** Insert Element into Max Heap **********
+
+1. Insert the new element at the end of the tree.
+2. Heapify the tree.
+
+-> For Min Heap, the above algorithm is modified so that parentNode is always smaller than newNode.
+
+
+********** Delete Element from Max Heap **********
+
+1. Select the element to be deleted.
+2. Swap it with the last element.
+3. Remove the last element.
+4. Heapify the tree.
+
+-> For Min Heap, above algorithm is modified so that both childNodes are greater smaller than currentNode.
 
 
 
 
+*********** Peek (Find max/min) **********
+
+-> Peek operation returns the maximum element from Max Heap or minimum element from Min Heap without deleting the node.
+
+-> For both Max heap and Min Heap
+
+   return rootNode
 
 
 
 
+********** Extract-Max/Min **********
+
+-> Extract-Max returns the node with maximum value after removing it from a Max Heap.
+-> whereas Extract-Min returns the node with minimum after removing it from Min Heap.
 
 
+
+
+*********** Heap Data Structure Applications **********
+
+• Heap is used while implementing a priority queue.
+• Dijkstra’s Algorithm
+• Heap Sort
 
 
 
