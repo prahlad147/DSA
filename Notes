@@ -1,10 +1,10 @@
-********** What is an Algorithm? ************
+********** What is an Algorithm ************
 -> An algorithm is a set of well-defined instructions in sequence to solve a problem.
 
 
 
 
-********** Qualities of Good Algorithms? **********
+********** Qualities of Good Algorithms **********
 -> 1. Input and output should be defined precisely.
    2. Each step in the algorithm should be clear and unambiguous.
    3. Algorithms should be most effective among many different ways to solve a problem.
@@ -14,23 +14,20 @@
       
       
 
-*********** Time and Space Complexity? ***********
+*********** Time and Space Complexity ***********
 -> Time Complexity -> Lesser time involved.
 -> Space Complexity -> Fewer memory involved.
 
 
 -> Two of the most valuable resources for a computer program are time and memory.
-
 -> The time taken by the computer to run code is: 
-   
    Time to run code = number of instructions * time to execute each instruction
-
 -> The number of instructions depends on the code you used, and the time taken to execute each code depends on your machine and compiler.
 
 
 
 
-********** Code? ***********
+********** Code ***********
 -> If it was written in a programming language, we would call it to code instead.
 
 
@@ -68,18 +65,18 @@ There are mainly three asymptotic notations:
 ********** Big-O Notation (O-notation)? ***********
 
 -> Big-O notation represents the upper bound of the running time of an algorithm. 
-->Thus, it gives the worst-case complexity of an algorithm.
+-> Thus, it gives the worst-case complexity of an algorithm.
 
 -> O gives the upper bound of a function
 
       O(g(n)) = { f(n): there exist positive constants c and n0 such that 0 ≤ f(n) ≤ cg(n) for all n ≥ n0 }
 
-The above expression can be described as a function f(n) belongs to the set O(g(n)) if there exists a positive constant c such that it lies between 0 and cg(n), 
-for sufficiently large n.
+-> The above expression can be described as a function f(n) belongs to the set O(g(n)) if there exists a positive constant c such that it lies between 0 and cg(n), 
+   for sufficiently large n.
 
-For any value of n, the running time of an algorithm does not cross the time provided by O(g(n)).
+-> For any value of n, the running time of an algorithm does not cross the time provided by O(g(n)).
 
-Since it gives the worst-case running time of an algorithm, it is widely used to analyze an algorithm as we are always interested in the worst-case scenario.
+-> Since it gives the worst-case running time of an algorithm, it is widely used to analyze an algorithm as we are always interested in the worst-case scenario.
 
 
 
@@ -87,39 +84,46 @@ Since it gives the worst-case running time of an algorithm, it is widely used to
 *********** Omega Notation (Ω-notation)? ************
 
 -> Omega notation represents the lower bound of the running time of an algorithm. 
-Thus, it provides the best case complexity of an algorithm.
+-> Thus, it provides the best case complexity of an algorithm.
 
-Ω(g(n)) = { f(n): there exist positive constants c and n0 such that 0 ≤ cg(n) ≤ f(n) for all n ≥ n0 }
+-> Ω gives the lower bound of a function
 
-The above expression can be described as a function f(n) belongs to the set Ω(g(n)) if there exists a positive constant c such that it lies above cg(n), for 
-sufficiently large n.
+      Ω(g(n)) = { f(n): there exist positive constants c and n0 such that 0 ≤ cg(n) ≤ f(n) for all n ≥ n0 }
 
-For any value of n, the minimum time required by the algorithm is given by Omega Ω(g(n)).
+-> The above expression can be described as a function f(n) belongs to the set Ω(g(n)) if there exists a positive constant c such that it lies above cg(n), for 
+   sufficiently large n.
+
+-> For any value of n, the minimum time required by the algorithm is given by Omega Ω(g(n)).
 
 
 
 
 ********** Theta Notation (Θ-notation)? ************
 
--> Theta notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for 
-analyzing the average-case complexity of an algorithm.
+-> Theta notation encloses the function from above and below. 
+-> Since it represents the upper and the lower bound of the running time of an algorithm, it is used for 
+   analyzing the average-case complexity of an algorithm.
 
-Theta bounds the function within constants factorsFor a function g(n), Θ(g(n)) is given by the relation:
-Θ(g(n)) = { f(n): there exist positive constants c1, c2 and n0 such that 0 ≤ c1g(n) ≤ f(n) ≤ c2g(n) for all n ≥ n0 }
+-> Theta bounds the function within constants factors.
 
-The above expression can be described as a function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1 and c2 such that it can be sandwiched 
-between c1g(n) and c2g(n), for sufficiently large n.
+-> For a function g(n), Θ(g(n)) is given by the relation:
+      
+      Θ(g(n)) = { f(n): there exist positive constants c1, c2 and n0 such that 0 ≤ c1g(n) ≤ f(n) ≤ c2g(n) for all n ≥ n0 }
 
-If a function f(n) lies anywhere in between c1g(n) and c2g(n) for all n ≥ n0, then 
-f(n) is said to be asymptotically tight bound.
+-> The above expression can be described as a function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1 and c2 such that it can be sandwiched 
+   between c1g(n) and c2g(n), for sufficiently large n.
+
+-> If a function f(n) lies anywhere in between c1g(n) and c2g(n) for all n ≥ n0, then 
+   f(n) is said to be asymptotically tight bound.
 
 
 
 
 ********** Master Theorem? **********
 
-The master method is a formula for solving recurrence relations of the form:
-T(n) = aT(n/b) + f(n),
+-> The master method is a formula for solving recurrence relations of the form:
+   
+   T(n) = aT(n/b) + f(n),
 where,
 n = size of input
 a = number of subproblems in the recursion
@@ -127,31 +131,41 @@ n/b = size of each subproblem. All subproblems are assumed to have the same size
 f(n) = cost of the work done outside the recursive call, which includes the cost of dividing the problem and cost of merging the solutions.
  
  
-Here, a ≥ 1 and b > 1 are constants, and f(n) is an asymptotically positive function.
-An asymptotically positive function means that for a sufficiently large value of n, 
-we have f(n) > 0.
-The master theorem is used in calculating the time complexity of recurrence 
-relations (divide and conquer algorithms) in a simple and quick way.
-If a ≥ 1 and b > 1 are constants and f(n) is an asymptotically positive function, then 
-the time complexity of a recursive relation is given by
-T(n) = aT(n/b) + f(n)
+-> Here, a ≥ 1 and b > 1 are constants, and f(n) is an asymptotically positive function.
+
+-> An asymptotically positive function means that for a sufficiently large value of n,  we have f(n) > 0.
+
+
+
+
+-> The master theorem is used in calculating the time complexity of recurrence relations (divide and conquer algorithms) in a simple and quick way.
+
+-> If a ≥ 1 and b > 1 are constants and f(n) is an asymptotically positive function, then the time complexity of a recursive relation is given by
+   
+   T(n) = aT(n/b) + f(n)
+
 where, T(n) has the following asymptotic bounds:
  1. If f(n) = O(nlogb a-ϵ), then T(n) = Θ(nlogb a).
  2. If f(n) = Θ(nlogb a), then T(n) = Θ(nlogb a * log n).
  3. If f(n) = Ω(nlogb a+ϵ), then T(n) = Θ(f(n)).
 ϵ > 0 is a constant.
-Each of the above conditions can be interpreted as:
-1. If the cost of solving the sub-problems at each level increases by a certain 
-factor, the value of f(n) will become polynomially smaller than nlogb a. 
-Thus, the time complexity is oppressed by the cost of the last level ie. nlogb 
-a
-2. If the cost of solving the sub-problem at each level is nearly equal, then the 
-value of f(n) will be nlogb a. Thus, the time complexity will be f(n) times the 
-total number of levels ie. nlogb a * log n
-3. If the cost of solving the subproblems at each level decreases by a certain 
-factor, the value of f(n) will become polynomially larger than nlogb a. Thus, 
+
+
+-> Each of the above conditions can be interpreted as:
+1. If the cost of solving the sub-problems at each level increases by a certain factor, the value of f(n) will become polynomially smaller than nlogb a. 
+Thus, the time complexity is oppressed by the cost of the last level ie. nlogb a
+
+2. If the cost of solving the sub-problem at each level is nearly equal, then the value of f(n) will be nlogb a. Thus, the time complexity will be f(n) times the 
+total number of levels ie. nlogb a * log n.
+
+3. If the cost of solving the subproblems at each level decreases by a certain factor, the value of f(n) will become polynomially larger than nlogb a. Thus, 
 the time complexity is oppressed by the cost of f(n).
-Solved Example of Master Theorem
+
+
+
+
+-> Solved Example of Master Theorem
+
 T(n) = 3T(n/2) + n2
 Here,
 a = 3
@@ -163,11 +177,529 @@ a+ϵ , where, ϵ is a constant.
 Case 3 implies here.
 Thus, T(n) = f(n) = Θ(n2) 
 Master Theorem Limitations
-The master theorem cannot be used if:
-• T(n) is not monotone. eg. T(n) = sin n
-• f(n) is not a polynomial. eg. f(n) = 2n
-• a is not a constant. eg. a = 2n
-• a < 1
+
+
+
+
+-> The master theorem cannot be used if:
+
+   • T(n) is not monotone. eg. T(n) = sin n
+   • f(n) is not a polynomial. eg. f(n) = 2n
+   • a is not a constant. eg. a = 2n
+   • a < 1
+
+
+
+
+********** Divide and Conquer Algorithm **********
+
+-> A divide and conquer algorithm is a strategy of solving a large problem by
+
+   1. breaking the problem into smaller sub-problems
+   2. solving the sub-problems, and
+   3. combining them to get the desired output.
+
+-> To use the divide and conquer algorithm, recursion is used.
+
+
+
+
+********** How Divide and Conquer Algorithms Work? **********
+
+-> Here are the steps involved:
+1. Divide: Divide the given problem into sub-problems using recursion.
+2. Conquer: Solve the smaller sub-problems recursively. If the subproblem is small enough, then solve it directly.
+3. Combine: Combine the solutions of the sub-problems that are part of the recursive process to solve the actual problem.
+
+
+********** Divide and Conquer Vs Dynamic approach ***********
+
+-> The divide and conquer approach divides a problem into smaller subproblems; these subproblems are further solved recursively. The result of each subproblem 
+   is not stored for future reference, whereas, in a dynamic approach, the result of each subproblem is stored for future reference.
+   
+-> Use the divide and conquer approach when the same subproblem is not solved multiple times. 
+-> Use the dynamic approach when the result of a subproblem is to be used multiple times in the future.
+
+
+
+
+
+
+********** Advantages of Divide and Conquer Algorithm **********
+
+   • The complexity for the multiplication of two matrices using the naive method is O(n^3), whereas using the divide and conquer approach (i.e. 
+      Strassen's matrix multiplication) is O(n^2.8074). This approach also simplifies other problems, such as the Tower of Hanoi.
+   • This approach is suitable for multiprocessing systems.
+   • It makes efficient use of memory caches.
+
+
+*********** Divide and Conquer Applications ***********
+
+   • Binary Search
+   • Merge Sort
+   • Quick Sort
+   • Strassen's Matrix multiplication
+   • Karatsuba Algorithm
+
+
+
+
+*********** Stack Data Structure ************
+
+-> A stack is a useful data structure in programming. A stack is an object (an abstract data type).
+-> It is just like a pile of plates kept on top of each other.
+-> Stack representation similar to a pile of plate.
+
+
+-> Think about the things you can do with such a pile of plates
+• Put a new plate on top
+• Remove the top plate
+
+
+-> If you want the plate at the bottom, you must first remove all the plates on top. 
+-> Such an arrangement is called Last In First Out - the last item that is the first item to go out.
+
+
+
+
+************ LIFO Principle of Stack **********
+
+-> In programming terms, putting an item on top of the stack is called push and removing an item is called pop.
+
+
+
+
+*********** Basic Operations of Stack ***********
+
+-> A stack is an object (an abstract data type - ADT) that allows the following operations:
+
+   • Push: Add an element to the top of a stack
+   • Pop: Remove an element from the top of a stack
+   • IsEmpty: Check if the stack is empty
+   • IsFull: Check if the stack is full
+   • Peek: Get the value of the top element without removing it
+
+
+
+
+********** Stack Time Complexity ***********
+
+-> For the array-based implementation of a stack, the push and pop operations take constant time, i.e. O(1)
+
+
+
+
+********** Applications of Stack Data Structure **********
+
+-> Although stack is a simple data structure to implement, it is very powerful. 
+
+-> The most common uses of a stack are:
+
+   • To reverse a word - Put all the letters in a stack and pop them out. Because of the LIFO order of stack, you will get the letters in reverse order.
+   • In compilers - Compilers use the stack to calculate the value of expressions like 2 + 4 / 5 * (7 - 9) by converting the expression to prefix or postfix form.
+   • In browsers - The back button in a browser saves all the URLs you have visited previously in a stack. Each time you visit a new page, it is added on 
+      top of the stack. When you press the back button, the current URL is removed from the stack, and the previous URL is accessed.
+
+
+
+
+*********** Queue Data Structure **********
+
+-> A queue is a useful data structure in programming. A queue is an object (an abstract data type - ADT).
+
+-> It is similar to the ticket queue outside a cinema hall, where the first person entering the queue is the first person who gets the ticket.
+
+
+-> Queue follows the First In First Out (FIFO) rule - the item that goes in first is the item that comes out first.
+
+
+
+
+********** FIFO Principle of Queue ***********
+
+-> In programming terms, putting items in the queue is called enqueue, and removing items from the queue is called dequeue.
+
+
+
+
+********** Basic Operations of Queue **********
+
+-> A queue is an object (an abstract data structure - ADT) that allows the following operations:
+
+   • Enqueue: Add an element to the end of the queue
+   • Dequeue: Remove an element from the front of the queue
+   • IsEmpty: Check if the queue is empty
+   • IsFull: Check if the queue is full
+   • Peek: Get the value of the front of the queue without removing it
+
+
+
+
+*********** Complexity Analysis of Queue Operations ***********
+
+-> The complexity of enqueue and dequeue operations in a queue using an array is O(1).
+
+
+
+
+*********** Applications of Queue ************
+
+   • CPU scheduling, Disk Scheduling
+   • When data is transferred asynchronously between two processes. The queue is used for synchronization. For example: IO Buffers, pipes, file IO, etc.
+   • Handling of interrupts in real-time systems.
+   • Call Center phone systems use Queues to hold people calling them in order.
+
+
+
+
+********** Types of Queues ************
+
+There are four different types of queues:
+• Simple Queue
+• Circular Queue
+• Priority Queue
+• Double Ended Queue
+
+
+
+
+*********** Simple Queue ***********
+
+-> In a simple queue, insertion takes place at the rear and removal occurs at the front. 
+-> It strictly follows the FIFO (First in First out) rule.
+
+
+
+
+************ Circular Queue ***********
+
+-> In a circular queue, the last element points to the first element making a circular link.
+
+
+
+
+************ Simple Queue Vs Circular Queue ***********
+
+-> The main advantage of a circular queue over a simple queue is better memory utilization. 
+-> If the last position is full and the first position is empty, we can insert an element in the first position. 
+-> This action is not possible in a simple queue.
+
+
+
+
+*********** Priority Queue ************
+
+-> A priority queue is a special type of queue in which each element is associated with a priority and is served according to its priority. 
+-> If elements with the same priority occur, they are served according to their order in the queue.
+-> Insertion occurs based on the arrival of the values and removal occurs based on priority.
+
+
+
+
+************ Deque (Double Ended Queue) ************
+
+-> In a double ended queue, insertion and removal of elements can be performed from either from the front or rear. 
+-> Thus, it does not follow the FIFO (First In First Out) rule.
+
+
+
+
+************ Circular Queue Data Structure ************
+
+-> Circular queue avoids the wastage of space in a regular queue implementation using arrays.
+
+
+
+
+************ How Circular Queue Works ************
+
+-> Circular Queue works by the process of circular increment i.e. when we try to increment the pointer and we reach the end of the queue, we start from the 
+   beginning of the queue.
+
+-> Here, the circular increment is performed by modulo division with the queue size. 
+
+-> That is,
+      if REAR + 1 == 5 (overflow!), REAR = (REAR + 1)%5 = 0 (start of queue).
+      
+      
+      
+      
+************ Circular Queue Complexity Analysis ************
+
+-> The complexity of the enqueue and dequeue operations of a circular queue is O(1) for (array implementations).
+
+
+
+
+************* Applications of Circular Queue ************
+
+   • CPU scheduling
+   • Memory management
+   • Traffic Management
+
+
+************ Priority Queue ***********
+
+-> A priority queue is a special type of queue in which each element is associated with a priority and is served according to its priority. 
+-> If elements with the same priority occur, they are served according to their order in the queue.
+
+-> Generally, the value of the element itself is considered for assigning the priority.
+-> For example, The element with the highest value is considered as the highest 
+   priority element. 
+
+
+
+
+************ Difference between Priority Queue and Normal Queue ***********
+
+-> In a queue, the first-in-first-out rule is implemented whereas, in a priority queue, the values are removed on the basis of priority. 
+-> The element with the highest priority is removed first.
+
+
+
+
+*********** Implementation of Priority Queue ***********
+
+-> Priority queue can be implemented using an array, a linked list, a heap data structure, or a binary search tree. 
+-> Among these data structures, heap data structure provides an efficient implementation of priority queues.
+
+-> A comparative analysis of different implementations of priority queue is given below.
+
+   Operations          peek  insert    delete
+   Linked List         O(1)  O(n)      O(1)
+   Binary Heap         O(1)  O(log n)  O(log n)
+   Binary Search Tree  O(1)  O(log n)  O(log n)
+
+
+
+
+************ Priority Queue Operations ***********
+
+-> Basic operations of a priority queue are inserting, removing, and peeking elements
+
+
+1. Inserting an Element into the Priority Queue
+
+Inserting an element into a priority queue (max-heap) is done by the following steps.
+   
+   • Insert the new element at the end of the tree.  
+   • Insert an element at the end of the queue 
+   • Heapify the tree. 
+   • Heapify after insertion
+
+
+
+
+2. Deleting an Element from the Priority Queue
+
+Deleting an element from a priority queue (max-heap) is done as follows:
+
+   • Select the element to be deleted. 
+   • Swap it with the last element. 
+   • Swap with the last leaf node element 
+   • Remove the last element. 
+   • Remove the last element leaf 
+   • Heapify the tree. 
+   • Heapify the priority queue 
+
+
+
+
+3. Peeking from the Priority Queue (Find max/min)
+
+Peek operation returns the maximum element from Max Heap or minimum element from Min Heap without deleting the node.
+
+
+
+
+4. Extract-Max/Min from the Priority Queue
+
+Extract-Max returns the node with maximum value after removing it from a Max Heap whereas Extract-Min returns the node with minimum value after removing it 
+from Min Heap.
+
+
+
+
+*********** Priority Queue Applications ************
+
+Some of the applications of a priority queue are:
+   • Dijkstra's algorithm
+   • for implementing stack
+   • for load balancing and interrupt handling in an operating system
+   • for data compression in Huffman code
+
+
+
+
+*********** Deque Data Structure ***********
+
+-> Deque or Double Ended Queue is a type of queue in which insertion and removal of elements can be performed from either from the front or rear. 
+-> Thus, it does not follow FIFO rule (First In First Out).
+
+
+
+
+*********** Types of Deque ***********
+
+   • Input Restricted Deque
+   In this deque, input is restricted at a single end but allows deletion at both the ends.
+   • Output Restricted Deque
+   In this deque, output is restricted at a single end but allows insertion at both the ends.
+
+
+
+
+*********** Operations on a Deque ************
+
+-> Below is the circular array implementation of deque. In a circular array, if the array is full, we start from the beginning.
+-> But in a linear array implementation, if the array is full, no more elements can be inserted. 
+-> In each of the operations below, if the array is full, "overflow message" is thrown.
+
+
+
+
+*********** Time Complexity ************
+
+-> The time complexity of all the above operations is constant i.e. O(1).
+
+
+
+
+*********** Applications of Deque Data Structure ************
+
+1. In undo operations on software.
+2. To store history in browsers.
+3. For implementing both stacks and queues
+
+
+
+
+********** Linked list Data Structure **********
+
+-> A linked list data structure includes a series of connected nodes. 
+-> Here, each node store the data and the address of the next node.
+
+
+-> You have to start somewhere, so we give the address of the first node a special name called HEAD.
+-> Also, the last node in the linked list can be identified because its next portion points to NULL.
+
+
+-> You might have played the game Treasure Hunt, where each clue includes the information about the next clue. That is how the linked list operates.
+
+
+********** Representation of Linked List **********
+
+Each node consists:
+• A data item
+• An address of another node.
+
+
+
+
+-> The power of a linked list comes from the ability to break the chain and rejoin it. 
+
+E.g. if you wanted to put an element 4 between 1 and 2, the steps would be:
+• Create a new struct node and allocate memory to it.
+• Add its data value as 4
+• Point its next pointer to the struct node containing 2 as the data value
+• Change the next pointer of "1" to the node we just created.
+
+
+
+
+*********** Linked List Complexity ***********
+
+Time Complexity
+
+Operations  Worst case  Average Case
+Search      O(n)        O(n)
+Insert      O(1)        O(1)
+Deletion    O(1)        O(1)
+
+
+Space Complexity: O(n)
+
+
+
+
+********** Linked List Applications **********
+
+• Dynamic memory allocation
+• Implemented in stack and queue
+• In undo functionality of softwares
+• Hash tables, Graphs
+
+
+
+
+*********** Linked List Operations: Traverse, Insert and Delete **********
+
+Two important points to remember:
+• head points to the first node of the linked list
+• next pointer of the last node is NULL, so if the next current node is NULL, we have reached the end of the linked list.
+
+
+
+
+********** Traverse a Linked List **********
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
