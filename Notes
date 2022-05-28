@@ -1955,6 +1955,18 @@ Bellman Ford's Algorithm Applications:
 
 Sorting and Searching Algorithms:
 
+Stable Sorting Algorithms:
+
+-> Stable sorting algorithms maintain the relative order of records with equal keys (i.e. values). 
+-> That is, a sorting algorithm is stable if whenever there are two records R and S with the same key and with R appearing before S in the original list, 
+      R will appear before S in the sorted list.
+      
+-> Several common sorting algorithms are stable by nature, such as Merge Sort, Timsort, Counting Sort, Insertion Sort, and Bubble Sort. 
+      Others such as Quicksort, Heapsort and Selection Sort are unstable.  
+
+
+
+
 Bubble Sort:
 
 -> Bubble sort is a sorting algorithm that compares two adjacent elements and swaps them if they are not in the intended order.
@@ -2149,8 +2161,971 @@ Bubble Sort Applications:
 
 
 
+Selection Sort Algorithm:
+
+-> Selection sort is a sorting algorithm that selects the smallest element from an unsorted list in each iteration and 
+      places that element at the beginning of the unsorted list.
 
 
+
+Working of Selection Sort:
+1. Set the first element as minimum.
+2. Compare minimum with the second element. 
+      If the second element is smaller than minimum, assign the second element as minimum.
+      Compare minimum with the third element. 
+      Again, if the third element is smaller, then assign minimum to the third element otherwise do nothing. 
+      The process goes on until the last element.
+3. After each iteration, minimum is placed in the front of the unsorted list.
+4. For each iteration, indexing starts from the first unsorted element. 
+      Step 1 to 3 are repeated until all the elements are placed at their correct positions.
+
+
+
+Selection Sort Algorithm:
+
+SelectionSort(array, size)
+ repeat (size - 1) times
+      set the first unsorted element as the minimum
+      for each of the unsorted elements
+            if element < currentMinimum
+            set element as new minimum
+      swap minimum with first unsorted position
+end selectionSort
+
+
+
+
+Time Complexities:
+• Worst Case Complexity: O(n^2)
+If we want to sort in ascending order and the array is in descending order then, the worst case occurs.
+
+• Best Case Complexity: O(n2)
+It occurs when the array is already sorted
+
+• Average Case Complexity: O(n2)
+It occurs when the elements of the array are in jumbled order (neither ascending nor descending).
+
+
+-> The time complexity of the selection sort is the same in all cases. 
+-> At every step, you have to find the minimum element and put it in the right place. 
+-> The minimum element is not known until the end of the array is not reached.
+
+
+Space Complexity:
+Space complexity is O(1) because an extra variable temp is used.
+
+
+
+
+Selection Sort Applications:
+
+The selection sort is used when
+• a small list is to be sorted
+• cost of swapping does not matter
+• checking of all the elements is compulsory
+• cost of writing to a memory matters like in flash memory (number of writes/swaps is O(n) as compared to O(n^2) of bubble sort)
+
+
+
+
+Insertion Sort Algorithm:
+
+-> Insertion sort is a sorting algorithm that places an unsorted element at its suitable place in each iteration.
+
+-> Insertion sort works similarly as we sort cards in our hand in a card game.
+-> We assume that the first card is already sorted then, we select an unsorted card. 
+-> If the unsorted card is greater than the card in hand, it is placed on the right otherwise, to the left. 
+-> In the same way, other unsorted cards are taken and put in their right place.
+
+-> A similar approach is used by insertion sort.
+
+
+
+Working of Insertion Sort:
+
+1. The first element in the array is assumed to be sorted. 
+      Take the second element and store it separately in key.
+      Compare key with the first element. 
+      If the first element is greater than key, then key is placed in front of the first element.
+2. Now, the first two elements are sorted.
+      Take the third element and compare it with the elements on the left of it. 
+      Placed it just behind the element smaller than it. 
+      If there is no element smaller than it, then place it at the beginning of the array
+3. Similarly, place every unsorted element at its correct position. 
+
+
+
+Insertion Sort Algorithm:
+
+insertionSort(array)
+      mark first element as sorted
+            for each unsorted element X
+            'extract' the element X
+            for j <- lastSortedIndex down to 0
+                  if current element j > X
+                  move sorted element to the right by 1
+            break loop and insert X here
+end insertionSort
+
+
+
+
+Time Complexities:
+
+• Worst Case Complexity: O(n^2)
+-> Suppose, an array is in ascending order, and you want to sort it in descending order. 
+-> In this case, worst case complexity occurs.
+-> Each element has to be compared with each of the other elements so, for every nth element, (n-1) number of comparisons are made.
+-> Thus, the total number of comparisons = n*(n-1) ~ n2
+
+• Best Case Complexity: O(n)
+-> When the array is already sorted, the outer loop runs for n number of times whereas the inner loop does not run at all. 
+-> So, there are only n number of comparisons. 
+-> Thus, complexity is linear.
+
+• Average Case Complexity: O(n^2)
+-> It occurs when the elements of an array are in jumbled order (neither ascending nor descending).
+
+
+
+
+Space Complexity:
+
+Space complexity is O(1) because an extra variable key is used.
+
+
+Stability: Yes
+
+
+
+
+Insertion Sort Applications:
+
+The insertion sort is used when:
+• the array is has a small number of elements
+• there are only a few elements left to be sorted
+
+
+
+Notes:
+-> Both merge sort and quicksort employ a common algorithmic paradigm based on recursion. 
+-> This paradigm, divide-and-conquer, breaks a problem into subproblems that are similar to the original problem, 
+      recursively solves the subproblems, and finally combines the solutions to the subproblems to solve the original problem.
+
+
+
+Divide and Conquer Strategy:
+
+-> Using the Divide and Conquer technique, we divide a problem into subproblems. 
+-> When the solution to each subproblem is ready, we 'combine' the results from the subproblems to solve the main problem.
+
+-> Suppose we had to sort an array A. 
+-> A subproblem would be to sort a sub-section of this array starting at index p and ending at index r, denoted as A[p..r].
+
+
+
+Divide:
+-> If q is the half-way point between p and r, then we can split the subarray A[p..r] into two arrays A[p..q] and A[q+1, r].
+
+Conquer:
+-> In the conquer step, we try to sort both the subarrays A[p..q] and A[q+1, r]. 
+-> If we haven't yet reached the base case, we again divide both these subarrays and try to sort them.
+
+Combine:
+-> When the conquer step reaches the base step and we get two sorted subarrays A[p..q] and A[q+1, r] for array A[p..r], 
+      we combine the results by creating a sorted array A[p..r] from two sorted subarrays A[p..q] and A[q+1, r].
+
+
+
+
+Merge Sort Algorithm:
+
+-> Merge Sort is one of the most popular sorting algorithms that is based on the principle of Divide and Conquer Algorithm.
+-> Here, a problem is divided into multiple sub-problems. 
+-> Each sub-problem is solved individually. 
+-> Finally, sub-problems are combined to form the final solution.
+
+-> The MergeSort function repeatedly divides the array into two halves until we reach a stage 
+      where we try to perform MergeSort on a subarray of size 1 i.e. p == r.
+-> After that, the merge function comes into play and combines the sorted arrays into larger arrays until the whole array is merged.
+
+
+MergeSort(A, p, r):
+      if p > r 
+      return
+      q = (p+r)/2
+ mergeSort(A, p, q)
+ mergeSort(A, q+1, r)
+ merge(A, p, q, r)
+
+
+-> To sort an entire array, we need to call MergeSort(A, 0, length(A)-1).
+
+
+
+The merge Step of Merge Sort:
+
+-> Every recursive algorithm is dependent on a base case and the ability to combineb the results from base cases. 
+-> Merge sort is no different. 
+-> The most important part of the merge sort algorithm is, you guessed it, merge step.
+-> The merge step is the solution to the simple problem of merging two sorted lists(arrays) to build one large sorted list(array).
+
+
+-> The algorithm maintains three pointers, one for each of the two arrays and one for maintaining the current index of the final sorted array.
+
+Have we reached the end of any of the arrays?
+ No:
+ Compare current elements of both arrays. 
+ Copy smaller element into sorted array.
+ Move pointer of element containing smaller element.
+ Yes:
+ Copy all remaining elements of non-empty array
+
+
+
+
+Writing the Code for Merge Algorithm:
+
+-> A noticeable difference between the merging step we described above and the one we use for merge sort is that 
+      we only perform the merge function on consecutive sub-arrays.
+-> This is why we only need the array, the first position, the last index of the first subarray(we can calculate the first index of the second subarray) 
+      and the last index of the second subarray.
+-> Our task is to merge two subarrays A[p..q] and A[q+1..r] to create a sorted array A[p..r]. So the inputs to the function are A, p, q and r
+
+
+
+
+The merge function works as follows:
+1. Create copies of the subarrays L ← A[p..q] and M ← A[q+1..r].
+2. Create three pointers i, j and k
+      a. i maintains current index of L, starting at 1
+      b. j maintains current index of M, starting at 1
+      c. k maintains the current index of A[p..q], starting at p.
+3. Until we reach the end of either L or M, pick the larger among the elements from L and M and place them in the correct position at A[p..q]
+4. When we run out of elements in either L or M, pick up the remaining elements and put in A[p..q].
+
+
+
+
+Time Complexity of Merge Sort Algorithms:
+Best Case Complexity: O(n*log n)
+Worst Case Complexity: O(n*log n)
+Average Case Complexity: O(n*log n)
+
+
+Space Complexity of Merge Sort Algorithms:
+The space complexity of merge sort is O(n).
+
+
+Stability: Yes
+
+
+
+
+Merge Sort Applications:
+• Inversion count problem
+• External sorting
+• E-commerce applications
+
+
+
+
+Quicksort Algorithm:
+
+-> Quicksort is a sorting algorithm based on the divide and conquer approach where
+1. An array is divided into subarrays by selecting a pivot element (element selected from the array).
+      While dividing the array, the pivot element should be positioned in such a way that elements less than pivot are kept on the left side 
+      and elements greater than pivot are on the right side of the pivot.
+2. The left and right subarrays are also divided using the same approach. 
+      This process continues until each subarray contains a single element.
+3. At this point, elements are already sorted. 
+      Finally, elements are combined to form a sorted array.
+
+
+
+
+Working of Quicksort Algorithm:
+1. Select the Pivot Element
+-> There are different variations of quicksort where the pivot element is selected from different positions. 
+-> Here, we will be selecting the rightmost element of the array as the pivot element.
+
+2. Rearrange the Array
+-> Now the elements of the array are rearranged so that elements that are smaller than the pivot are put on the left 
+      and the elements greater than the pivot are put on the right.
+
+
+
+
+Here's how we rearrange the array:
+
+1. A pointer is fixed at the pivot element. 
+      The pivot element is compared with the elements beginning from the first index. 
+2. If the element is greater than the pivot element, a second pointer is set for that element.
+3. Now, pivot is compared with other elements. 
+      If an element smaller than the pivot element is reached, the smaller element is swapped with the greater element found earlier.
+4. Again, the process is repeated to set the next greater element as the second pointer. 
+      And, swap it with another smaller element.
+5. The process goes on until the second last element is reached.
+6. Finally, the pivot element is swapped with the second pointer. 
+7. Divide Subarrays.
+8. Pivot elements are again chosen for the left and the right sub-parts separately. 
+      And, step 2 is repeated.
+
+
+
+
+
+Quick Sort Algorithm:
+
+quickSort(array, leftmostIndex, rightmostIndex)
+       if (leftmostIndex < rightmostIndex)
+            pivotIndex <- partition(array,leftmostIndex, rightmostIndex)
+quickSort(array, leftmostIndex, pivotIndex - 1)
+quickSort(array, pivotIndex, rightmostIndex)
+
+
+partition(array, leftmostIndex, rightmostIndex)
+      set rightmostIndex as pivotIndex
+      storeIndex <- leftmostIndex - 1
+      for i <- leftmostIndex + 1 to rightmostIndex
+            if element[i] < pivotElement
+            swap element[i] and element[storeIndex]
+      storeIndex++
+ swap pivotElement and element[storeIndex+1]
+return storeIndex + 1
+
+
+
+
+1. Time Complexities:
+• Worst Case Complexity: O(n^2)
+-> It occurs when the pivot element picked is either the greatest or the smallest element.
+-> This condition leads to the case in which the pivot element lies in an extreme end of the sorted array. 
+-> One sub-array is always empty and another sub-array contains n - 1 elements. 
+-> Thus, quicksort is called only on this sub-array.
+-> However, the quicksort algorithm has better performance for scattered pivots.
+
+• Best Case Complexity: O(n*log n)
+It occurs when the pivot element is always the middle element or near to the middle element.
+
+• Average Case Complexity: O(n*log n)
+It occurs when the above conditions do not occur.
+
+
+2. Space Complexity:
+The space complexity for quicksort is O(log n).
+
+Stability: No
+
+
+Quicksort Applications:
+Quicksort algorithm is used when
+• the programming language is good for recursion
+• time complexity matters
+• space complexity matters
+
+
+
+
+Notes:
+-> Median-of-three partitioning is the best method for choosing an appropriate pivot element. 
+      Picking a first, last or random element as a pivot is not much effective.
+-> A quicksort algorithm should always aim to choose the middle-most element as its pivot. 
+      Some algorithms will literally select the center-most item as the pivot, while others will select the first or the last element.
+
+
+
+Searching Algorithms:
+
+Linear Search:
+
+-> Linear search is the simplest searching algorithm that searches for an element in a list in sequential order. 
+-> We start at one end and check every element until the desired element is not found.
+
+
+
+
+How Linear Search Works?
+
+-> The following steps are followed to search for an element k = 1 in the list below.
+
+1. Start from the first element, compare k with each element x.
+2. If x == k, return the index.
+3. Else, return not found.
+
+
+
+
+Linear Search Algorithm:
+
+LinearSearch(array, key)
+ for each item in the array
+      if item == value
+ return its index
+
+
+// Linear Search in Java
+class LinearSearch {
+ public static int linearSearch(int array[], int x) {
+ int n = array.length;
+ // Going through array sequencially
+ for (int i = 0; i < n; i++) {
+      if (array[i] == x)
+      return i;
+      }
+      return -1;
+ }
+ 
+ 
+ 
+ public static void main(String args[]) {
+ int array[] = { 2, 4, 0, 1, 9 };
+ int x = 1;
+ int result = linearSearch(array, x);
+      if (result == -1)
+      System.out.print("Element not found");
+      else
+      System.out.print("Element found at index: " + result);
+      }
+}
+
+
+
+
+Linear Search Complexities:
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+
+
+Linear Search Applications:
+
+1. For searching operations in smaller arrays (<100 items)
+
+
+
+
+Binary Search:
+
+-> Binary Search is a searching algorithm for finding an element's position in a sorted array.
+-> In this approach, the element is always searched in the middle of a portion of an array.
+-> Binary search can be implemented only on a sorted list of items. 
+      If the elements are not sorted already, we need to sort them first.
+
+
+
+Binary Search Working:
+
+-> Binary Search Algorithm can be implemented in two ways which are discussed below.
+1. Iterative Method
+2. Recursive Method
+
+-> The recursive method follows the divide and conquer approach.
+
+The general steps for both methods are discussed below.
+1. The array in which searching is to be performed is.
+2. Set two pointers low and high at the lowest and the highest positions respectively.
+3. Find the middle element mid of the array ie. arr[(low + high)/2]
+4. If x == mid, then return mid.Else, compare the element to be searched with m.
+5. If x > mid, compare x with the middle element of the elements on the right side of mid. 
+      This is done by setting low to low = mid + 1.
+6. Else, compare x with the middle element of the elements on the left side of mid. 
+      This is done by setting high to high = mid - 1.
+7. Repeat steps 3 to 6 until low meets high.
+
+
+
+
+Binary Search Algorithm:
+
+1. Iteration Method
+
+do until the pointers low and high meet each other.
+ mid = (low + high)/2
+ if (x == arr[mid])
+      return mid
+ else if (x > arr[mid]) // x is on the right side
+      low = mid + 1
+ else // x is on the left side
+      high = mid - 1
+
+
+2. Recursive Method
+
+binarySearch(arr, x, low, high)
+ if low > high
+      return False 
+ else
+      mid = (low + high) / 2 
+ if x == arr[mid]
+      return mid
+ else if x > arr[mid]                                       // x is on the right side
+      return binarySearch(arr, x, mid + 1, high)
+ else                                                       // x is on the right side
+      return binarySearch(arr, x, low, mid - 1)
+
+
+
+
+Binary Search Complexity:
+
+Time Complexities
+• Best case complexity: O(1)
+• Average case complexity: O(log n)
+• Worst case complexity: O(log n)
+
+Space Complexity
+The space complexity of the binary search is O(1).
+
+
+
+
+Binary Search Applications
+• In libraries of Java, .Net, C++ STL
+• While debugging, the binary search is used to pinpoint the place where the 
+error happens.
+
+
+
+
+Greedy Algorithm:
+
+-> A greedy algorithm is an approach for solving a problem by selecting the best option available at the moment, 
+      without worrying about the future result it would bring. 
+-> In other words, the locally best choices aim at producing globally best results.
+
+
+-> This algorithm may not be the best option for all the problems. 
+      It may produce wrong results in some cases.
+-> This algorithm never goes back to reverse the decision made. 
+      This algorithm works in a top-down approach.
+
+
+
+
+The main advantage of Greedy algorithm is:
+1. The algorithm is easier to describe.
+2. This algorithm can perform better than other algorithms (but, not in all cases).
+
+
+
+Feasible Solution:
+
+-> A feasible solution is the one that provides the optimal solution to the problem.
+
+Greedy Algorithm:
+1. To begin with, the solution set (containing answers) is empty.
+2. At each step, an item is added into the solution set.
+3. If the solution set is feasible, the current item is kept.
+4. Else, the item is rejected and never considered again.
+
+
+Example - Greedy Approach
+Problem: You have to make a change of an amount using the smallest possible number of coins.
+
+Amount: $28
+Available coins:
+ $5 coin
+ $2 coin
+ $1 coin
+
+
+
+Solution:
+1. Create an empty solution-set = { }.
+2. coins = {5, 2, 1}
+3. sum = 0
+4. While sum ≠ 28, do the following.
+5. Select a coin C from coins such that sum + C < 28.
+6. If C + sum > 28, return no solution.
+7. Else, sum = sum + C.
+8. Add C to solution-set.
+
+
+-> Up to the first 5 iterations, the solution set contains 5 $5 coins. 
+      After that, we get 1 $2 coin and finally, 1 $1 coin.
+      
+      
+      
+Greedy Algorithm Applications:
+• Selection Sort
+• Knapsack Problem
+• Minimum Spanning Tree
+• Single-Source Shortest Path Problem
+• Job Scheduling Problem
+• Prim's Minimal Spanning Tree Algorithm
+• Kruskal's Minimal Spanning Tree Algorithm
+• Dijkstra's Minimal Spanning Tree Algorithm
+• Huffman Coding
+• Ford-Fulkerson Algorithm
+
+
+
+Famous Algorithms:
+
+1. Dijkstra's Algorithm:
+
+-> Dijkstra's algorithm allows us to find the shortest path between any two vertices of a graph.
+-> It differs from the minimum spanning tree because the shortest distance between two vertices might not include all the vertices of the graph.
+
+
+How Dijkstra's Algorithm works?
+
+-> Dijkstra's Algorithm works on the basis that any subpath B -> D of the shortest path A -> D between vertices 
+      A and D is also the shortest path between vertices B and D.
+
+
+-> Dijkstra used this property in the opposite direction i.e we overestimate the distance of each vertex from the starting vertex. 
+-> Then we visit each node and its neighbors to find the shortest subpath to those neighbors.
+
+
+-> The algorithm uses a greedy approach in the sense that we find the next best solution hoping that the end result is the best solution for the whole problem.
+
+
+
+
+Djikstra's algorithm pseudocode:
+
+-> We need to maintain the path distance of every vertex. 
+-> We can store that in an array of size v, where v is the number of vertices.
+
+-> We also want to be able to get the shortest path, not only know the length of the shortest path. 
+-> For this, we map each vertex to the vertex that last updated its path length.
+
+-> Once the algorithm is over, we can backtrack from the destination vertex to the source vertex to find the path.
+
+
+
+
+Dijkstra's Algorithm Complexity:
+
+Time Complexity: O(E Log V)
+      where, E is the number of edges and V is the number of vertices.
+
+Space Complexity: O(V)
+
+
+Dijkstra's Algorithm Applications
+• To find the shortest path
+• In social networking applications
+• In a telephone network
+• To find the locations in the map
+
+
+
+
+2. Kruskal's Algorithm:
+
+-> Kruskal's algorithm is a minimum spanning tree algorithm that takes a graph as input and finds the subset of the edges of that graph which
+• form a tree that includes every vertex
+• has the minimum sum of weights among all the trees that can be formed from the graph
+
+
+
+
+How Kruskal's algorithm works:
+
+-> It falls under a class of algorithms called greedy algorithms that find the local optimum in the hopes of finding a global optimum.
+-> We start from the edges with the lowest weight and keep adding edges until we reach our goal.
+
+
+The steps for implementing Kruskal's algorithm are as follows:
+1. Sort all the edges from low weight to high
+2. Take the edge with the lowest weight and add it to the spanning tree. 
+      If adding the edge created a cycle, then reject this edge.
+3. Keep adding edges until we reach all vertices. 
+
+
+
+
+Kruskal Algorithm Pseudocode:
+
+-> Any minimum spanning tree algorithm revolves around checking if adding an edge creates a loop or not.
+-> The most common way to find this out is an algorithm called Union FInd. 
+-> The Union-Find algorithm divides the vertices into clusters and allows us to check if two vertices belong to the same cluster 
+      or not and hence decide whether adding an edge creates a cycle.
+
+
+KRUSKAL(G):
+A = ∅
+For each vertex v ∈ G.V:
+ MAKE-SET(v)
+For each edge (u, v) ∈ G.E ordered by increasing order by weight(u, v):
+ if FIND-SET(u) ≠ FIND-SET(v): 
+ A = A ∪ {(u, v)}
+ UNION(u, v)
+return A
+
+
+Kruskal's Algorithm Complexity:
+
+The time complexity Of Kruskal's Algorithm is: O(E log E).
+
+
+Kruskal's Algorithm Applications:
+• In order to layout electrical wiring
+• In computer network (LAN connection)
+
+
+
+
+Kruskal's vs Prim's Algorithm:
+
+-> Prim's algorithm is another popular minimum spanning tree algorithm that uses a different logic to find the MST of a graph. 
+-> Instead of starting from an edge, Prim's algorithm starts from a vertex and keeps adding lowest-weight edges which aren't 
+      in the tree, until all vertices have been covered.
+
+
+
+
+Prim's Algorithm:
+
+-> Prim's algorithm is a minimum spanning tree algorithm that takes a graph as input and finds the subset of the edges of that graph which
+• form a tree that includes every vertex
+• has the minimum sum of weights among all the trees that can be formed from the graph
+
+
+
+
+How Prim's algorithm works?
+
+-> It falls under a class of algorithms called greedy algorithms that find the local optimum in the hopes of finding a global optimum.
+-> We start from one vertex and keep adding edges with the lowest weight until we reach our goal.
+
+The steps for implementing Prim's algorithm are as follows:
+1. Initialize the minimum spanning tree with a vertex chosen at random.
+2. Find all the edges that connect the tree to new vertices, find the minimum and add it to the tree
+3. Keep repeating step 2 until we get a minimum spanning tree
+
+
+
+
+Prim's Algorithm pseudocode:
+
+-> The pseudocode for prim's algorithm shows how we create two sets of vertices U and V-U. 
+-> U contains the list of vertices that have been visited and V-U the list of vertices that haven't. 
+
+-> One by one, we move vertices from set V-U to set U by connecting the least weight edge.
+
+T = ∅;
+U = { 1 };
+while (U ≠ V)
+ let (u, v) be the lowest cost edge such that u ∈ U and v ∈ V - U;
+ T = T ∪ {(u, v)}
+ U = U ∪ {v}
+
+
+
+
+Prim's Algorithm Complexity:
+
+The time complexity of Prim's algorithm is O(E log V).
+
+Prim's Algorithm Application
+• Laying cables of electrical wiring
+• In network designed
+• To make protocols in network cycles
+
+
+
+
+Huffman Coding:
+
+-> Huffman Coding is a technique of compressing data to reduce its size without losing any of the details. 
+-> It was first developed by David Huffman.
+-> Huffman Coding is generally useful to compress the data in which there are frequently occurring characters.
+
+
+
+How Huffman Coding works?
+
+-> Suppose the string below is to be sent over a network.
+-> Each character occupies 8 bits. 
+-> There are a total of 15 characters in the string. 
+-> Thus, a total of 8 * 15 = 120 bits are required to send this string.
+
+-> Using the Huffman Coding technique, we can compress the string to a smaller size.
+-> Huffman coding first creates a tree using the frequencies of the character and then generates code for each character.
+
+
+-> Once the data is encoded, it has to be decoded. 
+-> Decoding is done using the same tree.
+
+-> Huffman Coding prevents any ambiguity in the decoding process using the concept of prefix code 
+      ie. a code associated with a character should not be present in the prefix of any other code. 
+-> The tree created above helps in maintaining the property.
+
+
+
+Huffman coding is done with the help of the following steps.
+1. Calculate the frequency of each character in the string.
+2. Sort the characters in increasing order of the frequency. 
+      These are stored in a priority queue Q.
+3. Characters sorted according to the frequency 
+4. Make each unique character as a leaf node.
+5. Create an empty node z. 
+      Assign the minimum frequency to the left child of z and assign the second minimum frequency to the right child of z. 
+      Set the value of the z as the sum of the above two minimum frequencies.
+6. Getting the sum of the least numbers 
+7. Remove these two minimum frequencies from Q and add the sum into the list of frequencies (* denote the internal nodes in the figure above).
+8. Insert node z into the tree.
+9. Repeat steps 3 to 5 for all the characters.
+10.Repeat steps 3 to 5 for all the characters.
+11. For each non-leaf node, assign 0 to the left edge and 1 to the right edge.
+12.For sending the above string over a network, we have to send the tree as well as the above compressed-code.
+
+
+
+
+Decoding the code:
+-> For decoding the code, we can take the code and traverse through the tree to find the character.
+
+
+
+Huffman Coding Complexity:
+-> The time complexity for encoding each unique character based on its frequency is O(nlog n).
+-> Extracting minimum frequency from the priority queue takes place 2*(n-1) times and its complexity is O(log n). 
+-> Thus the overall complexity is O(nlog n).
+
+
+
+Huffman Coding Applications:
+• Huffman coding is used in conventional compression formats like GZIP, BZIP2, PKZIP, etc.
+• For text and fax transmissions
+
+
+
+
+Dynamic Programming:
+
+-> Dynamic Programming is a technique in computer programming that helps to efficiently solve a class of problems that have overlapping subproblems and 
+      optimal substructure property.
+      
+      
+      
+Dynamic Programming Example:
+
+-> Take the case of generating the fibonacci sequence.
+
+-> If the sequence is F(1) F(2) F(3)........F(50), it follows the rule F(n) = F(n-1) + F(n-2)
+F(50) = F(49) + F(48)
+F(49) = F(48) + F(47)
+F(48) = F(47) + F(46)
+...
+
+-> Notice how there are overlapping subproblems, we need to calculate F(48) to calculate both F(50) and F(49). 
+-> This is exactly the kind of algorithm where Dynamic Programming shines.
+
+
+
+How Dynamic Programming Works?
+
+-> Dynamic programming works by storing the result of subproblems so that when their solutions are required, 
+      they are at hand and we do not need to recalculate them.
+-> This technique of storing the value of subproblems is called memorization. 
+-> By saving the values in the array, we save time for computations of sub-problems we have already come across.
+
+
+var m = map(0 → 0, 1 → 1)
+function fib(n)
+ if key n is not in map m 
+ m[n] = fib(n − 1) + fib(n − 2)
+ return m[n]
+
+
+-> Dynamic programming by memorization is a top-down approach to dynamic programming. 
+-> By reversing the direction in which the algorithm works i.e. by starting from the base case and working towards the solution, 
+      we can also implement dynamic programming in a bottom-up manner.
+
+
+
+function fib(n)
+       if n = 0
+            return 0
+       else
+            var prevFib = 0, currFib = 1
+            repeat n − 1 times
+            var newFib = prevFib + currFib
+            prevFib = currFib
+            currFib = newFib
+ return currentFib
+
+
+
+Recursion vs Dynamic Programming:
+
+-> Dynamic programming is mostly applied to recursive algorithms. 
+-> This is not a coincidence, most optimization problems require recursion and dynamic programming is used for optimization.
+
+-> But not all problems that use recursion can use Dynamic Programming. 
+-> Unless there is a presence of overlapping subproblems like in the fibonacci sequence problem, 
+      a recursion can only reach the solution using a divide and conquer approach.
+
+-> That is the reason why a recursive algorithm like Merge Sort cannot use Dynamic Programming, because the subproblems are not overlapping in any way
+
+
+Greedy Algorithms vs Dynamic Programming:
+
+-> Greedy Algorithms are similar to dynamic programming in the sense that they are both tools for optimization.
+
+-> However, greedy algorithms look for locally optimum solutions or in other words, a greedy choice, in the hopes of finding a global optimum. 
+-> Hence greedy algorithms can make a guess that looks optimum at the time but becomes costly down the line and do not guarantee a globally optimum.
+
+-> Dynamic programming, on the other hand, finds the optimal solution to subproblems and then makes an informed choice to combine the results of those 
+      subproblems to find the most optimum solution.
+
+
+
+
+
+Backtracking Algorithm:
+
+-> A backtracking algorithm is a problem-solving algorithm that uses a brute force approach for finding the desired output.
+-> The Brute force approach tries out all the possible solutions and chooses the desired/best solutions.
+
+-> The term backtracking suggests that if the current solution is not suitable, then backtrack and try other solutions. 
+-> Thus, recursion is used in this approach.
+-> This approach is used to solve problems that have multiple solutions. 
+-> If you want an optimal solution, you must go for dynamic programming
+
+
+
+
+State Space Tree:
+
+-> A space state tree is a tree representing all the possible states (solution or nonsolution) of the problem 
+      from the root as an initial state to the leaf as a terminal state.
+
+
+
+Backtracking Algorithm:
+
+Backtrack(x)
+ if x is not a solution
+      return false
+ if x is a new solution
+      add to list of solutions
+ backtrack(expand x)
+
+
+
+Example Backtracking Approach:
+
+Problem: You want to find all the possible ways of arranging 2 boys and 1 girl on 3 benches. 
+Constraint: Girl should not be on the middle bench.
+
+Solution: There are a total of 3! = 6 possibilities. 
+We will try all the possibilities and get the possible solutions. We recursively try all the possibilities.
+
+
+
+Backtracking Algorithm Applications:
+1. To find all Hamiltonian Paths present in a graph.
+2. To solve the N Queen problem.
+3. Maze solving problem.
+4. The Knight's tour problem
 
 
 
